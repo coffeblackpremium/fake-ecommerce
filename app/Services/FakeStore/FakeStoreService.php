@@ -6,6 +6,10 @@ use App\Services\FakeStore\Endpoints\HasProducts;
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Facades\Http;
 
+/**
+ * Fake Store API Service
+ * @see https://fakestoreapi.com/docs
+ */
 class FakeStoreService
 {
     use HasProducts;
