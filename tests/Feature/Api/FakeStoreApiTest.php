@@ -1,32 +1,17 @@
 <?php
 
-namespace Tests\Feature\Api;
+test('whether the architecture of the fake store api is correct', function () {
+    $this->name = 'FakeStore';
 
-use Tests\TestCase;
+    expect("app/Services/$this->name")->toBeDirectory()
+        ->and("app/Services/$this->name/$this->name" . "Service.php")->toBeFile()
+        ->and("app/Services/$this->name/Endpoints")->toBeDirectory()
+        ->and("app/Services/$this->name/Endpoints/HasProducts.php")->toBeFile()
+        ->and("app/Services/$this->name/Endpoints/Products.php")->toBeFile()
+        ->and("app/Services/$this->name/Entitys")->toBeDirectory()
+        ->and("app/Services/$this->name/Entitys/Product.php")->toBeFile();
+});
 
-class FakeStoreApiTest extends TestCase
-{
-
-    private string $name;
-    /**
-     * Test Service Architecture API of the fake store.
-     *
-     * @return void
-     */
-    public function test_whether_the_architecture_of_the_fake_store_api_is_correct(): void
-    {
-        $this->name = 'FakeStore';
-        $this->assertDirectoryExists("app/Services/$this->name");
-        $this->assertFileExists("app/Services/$this->name/$this->name"."Service.php");
-        $this->assertDirectoryExists("app/Services/$this->name/Endpoints");
-        $this->assertFileExists("app/Services/$this->name/Endpoints/HasProducts.php");
-        $this->assertFileExists("app/Services/$this->name/Endpoints/Products.php");
-        $this->assertDirectoryExists("app/Services/$this->name/Entitys");
-        $this->assertFileExists("app/Services/$this->name/Entitys/Product.php");
-    }
-
-    public function test_can_fake_store_service(): void
-    {
-        //
-    }
-}
+test('can fake store service', function () {
+    //
+})->todo();
